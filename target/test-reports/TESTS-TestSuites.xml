@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="imediava-desktop" id="0" name="JugadorControllerTests" package="statsacb" tests="1" time="1.75" timestamp="2011-07-10T22:49:42">
+      <properties />
+
+      <testcase classname="statsacb.JugadorControllerTests" name="testSomething" time="1.712" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

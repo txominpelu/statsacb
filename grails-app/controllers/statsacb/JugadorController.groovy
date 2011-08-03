@@ -1,23 +1,20 @@
 package statsacb
 
 class JugadorController {
+	
+	def jugadorService 
 
 	def index = {
-		def jugador = Jugador.get(params.id)
-		def valPartidos = ValoracionPartido.executeQuery("select val from ValoracionPartido as val" + 
-                        " inner join val.partido as partido order by  partido.jornada desc",
-                         [], [max:3, offset:0])
 		
-		def rivales = valPartidos.collect {
-			
-				if ( it.partido.local.nombreCorto == 'PEV') {
-					return it.partido.visitante.nombreCorto
-				}else{
-					return it.partido.local.nombreCorto
-				}
+		def valPartidos = jugadorService.obtenerUltimosPartidos(params.codigo, 3)
+		valPartidos.each{
+			if(it.jugador.equipo.equals(it.partido.local)){
+				it.metaClass.rival = it.partido.visitante.nombreCorto
+			}else{
+				it.metaClass.rival = it.partido.local.nombreCorto
+			}
 		}
-		
-		[jugador:jugador, valPartidos: valPartidos, rivales: rivales]
+		[valPartidos: valPartidos]
 		
 	}
 }

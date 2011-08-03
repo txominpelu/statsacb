@@ -6,10 +6,13 @@ import statsacb.Equipo
 import statsacb.Partido;
 import statsacb.Jugador;
 
-@Grapes( @Grab(group='org.ccil.cowan.tagsoup', module='tagsoup', version='1.2') )
 class LectorJugadores{
 
-	static final String ENCODING = "ISO-8859-1"
+	static final nombresCortosToCodigos = [ 'CLA':'BAS',  'ALI':'ALI',
+		'GCA':'CLA', 'GRN':'GRN', 'FUE':'FUE', 'PEV':'PAM', 'CAI':'ZZA',
+		'FCB':'BAR', 'MEN':'MEN', 'CAJ':'SEV', 'BBB':'BLB', 'RMA':'MAD',
+		'MAN':'MAN', 'ASE':'EST', 'GBC':'GBC', 'DKV':'JOV', 'BRV':'VAL',
+		'UNI':'RON']
 
 	static final Integer COLUMNA_NUM_JORNADA = 1
 
@@ -19,64 +22,53 @@ class LectorJugadores{
 
 	def static main(String[] args){
 		LectorJugadores lector = new LectorJugadores();
-		def rangoLetrasList = new java.util.ArrayList('A'..'Z')
-		rangoLetrasList.addAll('1'..'9')
-		for(i in rangoLetrasList){
-			for(j in rangoLetrasList){
-				for(k in rangoLetrasList){
-					if("$i$j$k".toString().equals("BHM")){
-						break;
-					}
-					println "$i$j$k"
-					lector.leerJugador("$i$j$k")
-				}
-			}
+		new File( '/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/codigosJugadores.txt' ).eachLine { codigo ->
+			println codigo
+			lector.leerJugador(codigo)
 		}
 	}
-	
-	
+
+
 
 	/**
 	 * 
 	 */
 	def leerJugador(String codigoIdentificador){
+		def html = new CustomParser().parseUrl("http://www.acb.com/stspartidojug.php?cod_jugador=$codigoIdentificador&cod_competicion=LACB&cod_edicion=55")
 
-		def slurper = new XmlSlurper(new org.ccil.cowan.tagsoup.Parser() )
+		if (ObtenerCodigosJugadores.esJugadorValido(codigoIdentificador)) {
 
-		def url = new URL("http://www.acb.com/stspartidojug.php?cod_jugador=$codigoIdentificador&cod_competicion=LACB&cod_edicion=55")
 
-		try{
-			url.withReader (ENCODING) { reader ->
-
-				def html = slurper.parse(reader)
-				def tablaEstadisticas = html.'**'.find{
-					it.name() == 'table' && it['@class'] == 'estadisticas2'
-				}
-				def jugadorValido = tablaEstadisticas.tr.size() > 2;
-
-				if(jugadorValido) {
-					def nombre = html.'**'.find{
-						it.name() == 'div' && it['@class'] == 'nombrejug'
-					}.text()
-					def jugador = new Jugador(nombre:nombre, codigoAcb:codigoIdentificador)
-					jugador.save()
-					tablaEstadisticas.tr.findAll{ it['@class'] != 'estverde' }[0..-3].each { leerFilaActuacionIndividual(jugador, it) }
-				}
+			def tablaEstadisticas = html.'**'.find{
+				it.name() == 'table' && it['@class'] == 'estadisticas2'
 			}
-		}catch(java.net.ConnectException e){
-			println "Fallo al conectar a $codigoIdentificador."
+			def nombre = html.'**'.find{
+				it.name() == 'div' && it['@class'] == 'nombrejug'
+			}.text()
+			
+			def jugador = new Jugador(nombre:nombre, codigoAcb:codigoIdentificador)
+			println "Nombre: ${jugador.nombre}"
+			jugador.save()
+			tablaEstadisticas.tr.findAll{ it['@class'] != 'estverde' }[0..-3].each { leerFilaActuacionIndividual(jugador, it) }
 		}
 	}
 
 
+	/**
+	 * Lee una fila con la actuacion individual de un jugador
+	 * en un partido.
+	 * 
+	 * @param jugador jugador del que se leera la actuacion individual
+	 * @param filaPartido fila de la tabla en html que contiene la actuacion
+	 */
 	def leerFilaActuacionIndividual (Jugador jugador, GPathResult filaPartido ) {
 		def valoracion = filaPartido.td[COLUMNA_VALORACION_PARTIDO].text()
-		def minutos = Integer.valueOf(filaPartido.td[COLUMNA_MINUTOS].text().replace('\'',' ').trim() )
-		println minutos
-		def actuacion = new ValoracionPartido(totalValoracion:valoracion, minutosJugados: minutos,  partido:leerPartido(filaPartido),
-				jugador:jugador)
-		actuacion.save()
-		println "Jugador:${jugador.nombre} - Valoracion = $valoracion"
+		def minutos = filaPartido.td[COLUMNA_MINUTOS].text().replace('\'',' ').trim()
+		if(valoracion.isNumber() && minutos.isNumber()){
+			def actuacion = new ValoracionPartido(totalValoracion:valoracion, minutosJugados: minutos,  partido:leerPartido(filaPartido),
+					jugador:jugador)
+			actuacion.save()
+		}
 	}
 
 	/**
@@ -117,7 +109,7 @@ class LectorJugadores{
 	private leerEquipo(String nombreCorto) {
 		def equipoLocal = Equipo.findWhere(nombreCorto:nombreCorto)
 		if(equipoLocal == null){
-			equipoLocal = new Equipo(nombreCorto:nombreCorto)
+			equipoLocal = new Equipo(nombreCorto:nombreCorto, codigo:nombresCortosToCodigos[nombreCorto])
 			equipoLocal.save()
 		}
 		return equipoLocal

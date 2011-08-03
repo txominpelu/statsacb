@@ -1,0 +1,464 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for es.imediava:statsacb:war:0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 340, column 15
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:build-helper-maven-plugin is missing. @ line 301, column 16
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building statsacb 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:2.0-beta-2:sonar (default-cli) @ statsacb ---
+[INFO] Sonar version: 2.5
+[INFO]  Database dialect class org.sonar.jpa.dialect.MySql
+[INFO]  -------------  Analyzing statsacb
+[INFO]  Selected quality profile : [name=Sonar Groovy Way,language=grvy]
+[INFO]  Compare to previous analysis  (2011-08-01 16:11:37.0)
+[INFO]  Compare over 5 days (2011-08-01 01:49:05.0)
+[INFO]  Compare over 30 days (2011-08-01 01:49:05.0)
+[INFO]  Configure maven plugins...
+[INFO]  Execute generate-sources...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building statsacb 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- grails-maven-plugin:1.3.7:validate (default) @ statsacb ---
+[INFO] 
+[INFO] --- grails-maven-plugin:1.3.7:init (default) @ statsacb ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.7:add-source (default) @ statsacb ---
+[INFO] Source directory: /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/controllers added.
+[INFO] Source directory: /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/domain added.
+[INFO] Source directory: /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/services added.
+[INFO] 
+[INFO] --- grails-maven-plugin:1.3.7:config-directories (default) @ statsacb ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.503s
+[INFO] Finished at: Mon Aug 01 16:14:03 CEST 2011
+[INFO] Final Memory: 16M/150M
+[INFO] ------------------------------------------------------------------------
+[INFO]  Execute generate-sources done: 1028 ms
+[INFO]  Sensor AsynchronousMeasuresSensor...
+[INFO]  Sensor AsynchronousMeasuresSensor done: 93 ms
+[INFO]  Sensor GroovySourceImporter...
+[INFO]  Sensor GroovySourceImporter done: 3474 ms
+[INFO]  Sensor JaCoCoSensor...
+[INFO]  Can't find build output directory: /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/classes. Skipping JaCoCo analysis.
+[INFO]  Sensor JaCoCoSensor done: 110 ms
+[INFO]  Sensor CpdSensor...
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/src/groovy/statsacb/scraping/ObtenerCodigosJugadores.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: unexpected char: '$'
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/src/groovy/statsacb/scraping/LectorEquipos.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: expecting anything but ''\n''; got it anyway
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/src/groovy/statsacb/scraping/LectorJugadores.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: expecting anything but ''\n''; got it anyway
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/services/statsacb/JugadorService.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: unexpected char: 0xA
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/conf/Config.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: expecting anything but ''\n''; got it anyway
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[ERROR]  Unexpected token when lexing file : /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/grails-app/conf/UrlMappings.groovy
+groovyjarjarantlr.TokenStreamRecognitionException: expecting anything but ''\n''; got it anyway
+	at org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken(GroovyLexer.java:704) [na:na]
+	at org.sonar.plugins.groovy.foundation.GroovyCpdTokenizer.tokenize(GroovyCpdTokenizer.java:45) [na:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:109) [sonar-duplications-2.5.jar:na]
+	at org.sonar.duplications.cpd.CPD.add(CPD.java:74) [sonar-duplications-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.configureCPD(CpdSensor.java:109) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.executeCPD(CpdSensor.java:88) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.plugins.cpd.CpdSensor.analyse(CpdSensor.java:68) [sonar-cpd-plugin-2.5.jar:na]
+	at org.sonar.batch.phases.SensorsExecutor.execute(SensorsExecutor.java:60) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.phases.Phases.execute(Phases.java:72) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.ProjectBatch.execute(ProjectBatch.java:61) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModule(Batch.java:149) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.analyzeModules(Batch.java:106) [sonar-batch-2.5.jar:na]
+	at org.sonar.batch.Batch.execute(Batch.java:66) [sonar-batch-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.executeBatch(SonarMojo.java:136) [sonar-maven3-plugin-2.5.jar:na]
+	at org.sonar.maven3.SonarMojo.execute(SonarMojo.java:127) [sonar-maven3-plugin-2.5.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.executeMojo(Bootstraper.java:113) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.Bootstraper.start(Bootstraper.java:65) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.codehaus.mojo.sonar.SonarMojo.execute(SonarMojo.java:90) [sonar-maven-plugin-2.0-beta-2.jar:na]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:107) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:195) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:140) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:84) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:59) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(LifecycleStarter.java:183) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:161) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:316) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:153) [maven-core-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:451) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:188) [maven-embedder-3.0.1.jar:3.0.1]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:134) [maven-embedder-3.0.1.jar:3.0.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [na:1.6.0_20]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [na:1.6.0_20]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [na:1.6.0_20]
+	at java.lang.reflect.Method.invoke(Method.java:616) [na:1.6.0_20]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:290) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:230) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:409) [plexus-classworlds-2.4.jar:na]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352) [plexus-classworlds-2.4.jar:na]
+[INFO]  Sensor CpdSensor done: 246 ms
+[INFO]  Sensor ProfileSensor...
+[INFO]  Sensor ProfileSensor done: 7 ms
+[INFO]  Sensor ProjectLinksSensor...
+[INFO]  Sensor ProjectLinksSensor done: 10 ms
+[INFO]  Sensor VersionEventsSensor...
+[INFO]  Sensor VersionEventsSensor done: 96 ms
+[INFO]  Sensor Maven dependencies...
+[INFO]  Sensor Maven dependencies done: 6839 ms
+[INFO]  Sensor GroovySensor...
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 2457ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 48ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 52ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 27ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 157ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 2ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 10ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing GMetrics
+[INFO]  No custom message bundle found for [gmetrics-messages]. Using default messages.
+[INFO]  GMetrics completed: 1ms
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/gmetrics-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 56ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=6; p3=0) 5361ms
+CodeNarc completed: (p1=0; p2=6; p3=0) 5361ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 6ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 265ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 265ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 3ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 177ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 177ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 2ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 111ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 111ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 3ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 313ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 313ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 3ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 47ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 47ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 3ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 26ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 26ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Executing CodeNarc
+[INFO]  Loaded properties file in 3ms; 206 rules
+[INFO]  Loading ruleset from [file:/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/checkProfile.xml]
+[INFO]  RuleSet configuration properties file [codenarc.properties] not found.
+[INFO]  No custom message bundle found for [codenarc-messages]. Using default messages.
+[INFO]  Report file [/home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml] created.
+[INFO]  CodeNarc completed: (p1=0; p2=0; p3=0) 25ms
+CodeNarc completed: (p1=0; p2=0; p3=0) 25ms
+[INFO]  Parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/sonar/codenarc-report.xml
+[INFO]  Sensor GroovySensor done: 16286 ms
+[INFO]  Sensor Groovy CoberturaSensor...
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/test-reports/cobertura/coverage.xml
+[INFO]  Sensor Groovy CoberturaSensor done: 256 ms
+[INFO]  Sensor Groovy SurefireSensor...
+[INFO]  parsing /home/imediava/Mis-Proyectos-Programacion/Groovy/Grails/statsacb/target/test-reports
+[INFO]  Sensor Groovy SurefireSensor done: 30 ms
+[INFO]  Execute decorators...
+[INFO]  ANALYSIS SUCCESSFUL, you can browse http://localhost:9000
+[INFO]  Executing post-job class org.sonar.plugins.dbcleaner.runner.PurgeRunner
+[INFO]  Database optimization...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeOrphanResources...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeOrphanResources done: 50 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeEntities...
+[INFO]  Deleting files data before Mon Aug 01 04:14:34 CEST 2011
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeEntities done: 31 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeRuleMeasures...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeRuleMeasures done: 193 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeUnprocessed...
+[INFO]  Deleting unprocessed data before Mon Aug 01 04:14:34 CEST 2011
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeUnprocessed done: 33 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDeletedResources...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDeletedResources done: 35 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDeprecatedLast...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDeprecatedLast done: 41 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.UnflagLastDoublons...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.UnflagLastDoublons done: 63 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDisabledResources...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDisabledResources done: 57 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeResourceRoles...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeResourceRoles done: 55 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeEventOrphans...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeEventOrphans done: 32 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgePropertyOrphans...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgePropertyOrphans done: 71 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.period.PeriodPurge...
+[INFO]  There are no snapshots to purge
+[INFO]  Purge org.sonar.plugins.dbcleaner.period.PeriodPurge done: 71 ms
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDependencies...
+[INFO]  Purge org.sonar.plugins.dbcleaner.purges.PurgeDependencies done: 94 ms
+[INFO]  Database optimization done: 866 ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 48.370s
+[INFO] Finished at: Mon Aug 01 16:14:35 CEST 2011
+[INFO] Final Memory: 35M/206M
+[INFO] ------------------------------------------------------------------------

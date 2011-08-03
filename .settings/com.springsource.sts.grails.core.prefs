@@ -1,4 +1,16 @@
-#Wed May 18 01:50:19 CEST 2011
+#Sat Jul 30 11:52:43 CEST 2011
 com.springsource.sts.grails.core.com.springsource.sts.grails.core.install.name=grails-defecto
+com.springsource.sts.grails.core.source.attachment-grails-bootstrap-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-core-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-crud-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-docs-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-gorm-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-resources-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-scripts-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/scripts
+com.springsource.sts.grails.core.source.attachment-grails-spring-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-test-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-tomcat-plugin-1.0.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-web-1.3.7.jar=/home/imediava/Programas-StandAlone/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-hibernate-core-3.3.1.GA.jar=/home/imediava/Descargas/hibernate-hibernate-core-2e86a96/core/src/main/java
 com.springsource.sts.grails.core.use.default.install=false
 eclipse.preferences.version=1

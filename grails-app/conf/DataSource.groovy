@@ -14,7 +14,7 @@ environments {
     development {
         dataSource {
             pooled = true
-			dbCreate = "create"
+			dbCreate = "update"
 			url = "jdbc:mysql://localhost/statsacb_dev"
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "statsacb_dev"

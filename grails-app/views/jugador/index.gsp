@@ -18,7 +18,7 @@
 
 <body>
 
-    <h1><%=jugador.nombre%></h1>
+    <h1>${valPartidos[0].jugador.nombre}</h1>
     
 	<ul>
 		<li>Posicion: Alero</li>
@@ -47,7 +47,7 @@
         
         <g:each in="${valPartidos}" var="partido">
         	<tr>
-		   		<td>${rivales[counter]}</td>
+		   		<td>${partido.rival}</td>
 		   		
 		    	<td>${partido.totalValoracion}</td>
 		    	

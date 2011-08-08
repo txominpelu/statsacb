@@ -15,6 +15,8 @@ class LectorJugadores{
 		'UNI':'RON']
 
 	static final Integer COLUMNA_NUM_JORNADA = 1
+	
+	static final int EDICION_ACB = 55
 
 	int COLUMNA_VALORACION_PARTIDO = 17;
 	int COLUMNA_EQUIPOS_PARTIDO = 2;
@@ -34,9 +36,9 @@ class LectorJugadores{
 	 * 
 	 */
 	def leerJugador(String codigoIdentificador){
-		def html = new CustomParser().parseUrl("http://www.acb.com/stspartidojug.php?cod_jugador=$codigoIdentificador&cod_competicion=LACB&cod_edicion=55")
+		def html = new CustomParser().parseUrl("http://www.acb.com/stspartidojug.php?cod_jugador=$codigoIdentificador&cod_competicion=LACB&cod_edicion=$EDICION_ACB")
 
-		if (ObtenerCodigosJugadores.esJugadorValido(codigoIdentificador)) {
+		if (ObtenerCodigosJugadores.esJugadorValido(codigoIdentificador, EDICION_ACB)) {
 
 
 			def tablaEstadisticas = html.'**'.find{

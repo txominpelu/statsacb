@@ -21,8 +21,8 @@
     <h1>${valPartidos[0].jugador.nombre}</h1>
     
 	<ul>
-		<li>Posicion: Alero</li>
-		<li>Coste: 350.000</li>
+		<li>Posicion: ${valPartidos[0].jugador.posicion}</li>
+		<li>Coste: ${valPartidos[0].jugador.precio} </li>
 		<li>Val. Media: 14,5</li>
 	</ul>
 	

@@ -13,16 +13,10 @@ class JugadorService {
 	 */
     def datosJugadorTabla(String codigoJugador) {
 		def jugador = Jugador.findWhere(codigoAcb:codigoJugador)
-		def datos = [:]
-		datos.nombre = jugador.nombre
-		datos.ultimosTres = obtenerUltimosPartidos(codigoJugador, 3).collect { it.totalValoracion }.sum() / 3
-		datos.valMedia = obtenerValMedia(codigoJugador)
-		datos.valJornada = obtenerUltimosPartidos(codigoJugador, 1)[0].totalValoracion
-		datos.codigo = codigoJugador
-		if(jugador.equipo){
-			datos.equipo = jugador.equipo.nombreCorto
-		}
-		return datos
+		jugador.metaClass.ultimosTres = obtenerUltimosPartidos(codigoJugador, 3).collect { it.totalValoracion }.sum() / 3
+		jugador.metaClass.valMedia = obtenerValMedia(codigoJugador)
+		jugador.metaClass.valJornada = obtenerUltimosPartidos(codigoJugador, 1)[0].totalValoracion
+		return jugador
     }
 	
 	/**

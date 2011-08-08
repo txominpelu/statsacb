@@ -149,6 +149,8 @@
 			<th>Val Media</th>
 			
 			<th>Val Jornada</th>
+			
+			<th>Precio</th>
 
 			<th>Equipo</th>
 			
@@ -157,18 +159,24 @@
         
         <g:each in="${jugadores}" var="jugador">
         
-        	<tr data-codigo="${jugador.codigo}">
+        	<tr data-codigo="${jugador.codigoAcb}">
 				
 				<td><a href="http://www.acb.com/stspartidojug.php?cod_jugador=BCE">${jugador.nombre} </a></td>
         	
-			    <td>${jugador.ultimosTres}</td>
+			    <td><g:formatNumber number="${jugador.ultimosTres}" format="#.##" /></td>
 	
-			
 			    <td>${jugador.valMedia}</td>
 			
 			    <td>${jugador.valJornada}</td>
+			    
+			    <td>${jugador.precio}</td>
 			
-			    <td>${jugador.equipo}</td>
+				<g:if test="${jugador.equipo}">
+	     			<td>${jugador.equipo.nombreCorto}</td>
+				</g:if>
+			    <g:if test="${!jugador.equipo}">
+	     			<td> </td>
+				</g:if>
 				
 			</tr>
 		</g:each>

@@ -1,6 +1,7 @@
 package statsacb.scraping
 
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
 import org.jsoup.Connection
@@ -52,26 +53,32 @@ class LectorMercado {
 	 * @return
 	 */
 	def leerTabla(Document documento, Posicion posicion){
-		def filas = documento.select("table")[5].select("tr")
-		for(fila in filas[2..-1]){
+		for(fila in getFilasJugadores(documento)){
 			def codigoAcb = leerCodigo(fila)
 			def precio = leerPrecio(fila)
 			def jugador = Jugador.findByCodigoAcb(codigoAcb)
-			if(jugador){
-				jugador.posicion = posicion
-				jugador.precio = precio
-			}else{
-				println "No encontrado: $codigoAcb"
-			}
-			//jugador.save()
+			jugador.posicion = posicion
+			jugador.precio = precio
+			jugador.save(flush:true)
 		}
 	}
+
+	/**
+	 * Devuelve una lista con las filas de jugadores
+	 * del documento html.
+	 * 
+	 * @param documento documento html
+	 * @return lista con las filas html de jugadores
+	 */
+	protected Elements getFilasJugadores(Document documento) {
+		return documento.select("table")[5].select("tr")[2..-1]
+	}
 	
-	def leerPrecio(Element filaJugador){
+	protected String leerPrecio(Element filaJugador){
 		return filaJugador.select('td.grisdcha').text()
 	}
 	
-	def leerCodigo(Element filaJugador){
+	protected  String leerCodigo(Element filaJugador){
 		return filaJugador.select('td a').attr("href").
 				replace("http://www.acb.com/stspartidojug.php?cod_jugador=", "");
 	}

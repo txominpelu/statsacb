@@ -2,7 +2,7 @@ package statsacb.scraping
 
 import groovy.util.slurpersupport.GPathResult;
 import statsacb.ValoracionPartido
-import statsacb.Equipo
+import statsacb.EquipoAcb
 import statsacb.Partido;
 import statsacb.Jugador;
 
@@ -109,9 +109,9 @@ class LectorJugadores{
 	 * @return el equipo que tiene dicho nombre corto
 	 */
 	private leerEquipo(String nombreCorto) {
-		def equipoLocal = Equipo.findWhere(nombreCorto:nombreCorto)
+		def equipoLocal = EquipoAcb.findWhere(nombreCorto:nombreCorto)
 		if(equipoLocal == null){
-			equipoLocal = new Equipo(nombreCorto:nombreCorto, codigo:nombresCortosToCodigos[nombreCorto])
+			equipoLocal = new EquipoAcb(nombreCorto:nombreCorto, codigo:nombresCortosToCodigos[nombreCorto])
 			equipoLocal.save()
 		}
 		return equipoLocal

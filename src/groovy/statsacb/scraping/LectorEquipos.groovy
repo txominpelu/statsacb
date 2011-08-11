@@ -1,6 +1,6 @@
 package statsacb.scraping
 
-import statsacb.Equipo;
+import statsacb.EquipoAcb;
 import statsacb.Jugador;
 import groovy.util.slurpersupport.NodeChild;
 
@@ -28,7 +28,7 @@ class LectorEquipos {
 		listarEquipos()
 		def lector = new LectorEquipos()
 		
-		for(equipo in Equipo.getAll()){
+		for(equipo in EquipoAcb.getAll()){
 			println "Codigo: ${equipo.codigo}"
 			lector.leerEquipo(equipo)
 		}
@@ -61,7 +61,7 @@ class LectorEquipos {
 	 * @param equipo
 	 * @return
 	 */
-	def leerEquipo(Equipo equipo){
+	def leerEquipo(EquipoAcb equipo){
 
 		def html = new CustomParser().parseUrl("http://www.acb.com/plantilla.php?cod_equipo=${equipo.codigo}&cod_competicion=LACB&cod_edicion=$EDICION_ACB")
 		
@@ -70,7 +70,7 @@ class LectorEquipos {
 		
 	}
 	
-	def leerTabla(NodeChild html, int tableIndex, int codeCellIndex , Equipo equipo){
+	def leerTabla(NodeChild html, int tableIndex, int codeCellIndex , EquipoAcb equipo){
 		
 		def tablas = html.'**'.findAll{
 			it.name() == 'table' && it['@class'] == 'plantilla'
@@ -84,7 +84,7 @@ class LectorEquipos {
 	}
 	
 	
-	def leerJugador(GPathResult filaJugador, Equipo equipo, int codeCellIndex){
+	def leerJugador(GPathResult filaJugador, EquipoAcb equipo, int codeCellIndex){
 		
 		def codigoJugador = filaJugador.td[codeCellIndex].a[0]['@href'].toString().replace('jugador.php?id=', '')
 		def jugador = Jugador.findWhere(codigoAcb: codigoJugador)

@@ -13,9 +13,10 @@ class Jugador {
 		codigoAcb(nullable:false, unique:true)
 		posicion(nullable:true)
 		equipo(nullable:true)
+		precio(nullable:true)
     }
 	
-	static belongsTo = [equipo:Equipo]
+	static belongsTo = [equipo:EquipoAcb]
 
     /**
      * Nombre del jugador.
@@ -35,7 +36,7 @@ class Jugador {
 	/**
 	 * Precio actual del jugador.
 	 */
-	String precio
+	Integer precio
 	
 	
 }

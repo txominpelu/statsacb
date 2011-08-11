@@ -15,8 +15,8 @@ class Partido {
 	}
 
 	Integer jornada
-    Equipo local
-    Equipo visitante
+    EquipoAcb local
+    EquipoAcb visitante
 	Boolean jugado = false
 
 }

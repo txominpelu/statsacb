@@ -1,272 +1,42 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//ES"
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
+	<head>	
+	</head>
 
-<head>
+	<body>
 
-    <title>Tabla ordenada SuperManager ACB</title>
-    <link rel="StyleSheet" href="../css/table-style.css" type="text/css"/>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="../js/select-elements.js"></script>
+		<div class="main-panel">
+			<header><p>Tu equipo</p></header>
+			<div class="grupo-tabla">
 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<meta name="description" content="description"/>
+				<div id="tabla-equipo">
 
-<meta name="keywords" content="keywords"/> 
-<meta name="author" content="author"/> 
-<link rel="stylesheet" type="text/css" href="../css/default.css" media="screen"/>
-</head>
+					<g:render template="tablaJugadores" model="[jugadores : session.equipoSM.jugadores, min:11]" />
+				</div>
 
-<body>
+				<div class="player-data-container" id="datos-jugador-1">
+					 
+				</div>
 
-
-<div class="container">
-	
-	<div class="main">
+			</div>
+		</div>
+		<div id="panel-mercado">
+			<header><p>Mercado</p></header>
+		</div>
+		<div class="main-panel">
+			<div class="grupo-tabla">
 		
-
-<div align="center">
-
-
-        <h1 align="center">Listado de jugadores</h1>
-    	<br/>
-
-<div>
-	<div class="tablas-alineadas">
-    	<table align="center"class="sortable" id="anyid" cellpadding="0" cellspacing="0">
-
-        <thead>
-		<tr>
-			<th>Nombre</th>
-        		
-			<th>Ult. 3</th>
+				<div id="tabla-mercado">
+					<g:render template="tablaJugadores" model="[jugadores : jugadoresMercado, min: jugadoresMercado.size()]" />
+				</div>
 			
-			<th>Val Media</th>
+				<div class="player-data-container" id="datos-jugador-2">
+					
+				</div>
+
 			
-			<th>Val Jornada</th>
-			
-			<th>Equipo</th>
-			
-		</tr>
-        </thead>
-        
-		<tr>
-			<td><a href="http://www.acb.com/stspartidojug.php?cod_jugador=B9H">Vujanic, Milos</a></td>
-        	
-		    <td>21.33</td>
-		
-		    <td>14.08</td>
-		
-		    <td>32.0</td>
-		
-		    <td>MUR</td>
-		
-		</tr>
+			</div>
+		</div>
 
-        
-		
-	</table>
-
-</div>   
-
-    <div class="datos-jugador">
-	<h1>Juan Tal Cual</h1>
-	<ul>
-		<li>Posición: Alero</li>
-		<li>Coste: 350.000</li>
-		<li>Val. Media: 14,5</li>
-	</ul>
-	<h2>Últimos tres partidos</h2>
-	<table class="sortable" id="anyid">
-
-        <thead>
-		<tr>
-			<th>Rival</th>
-        		
-			<th>Valoracion</th>
-			
-			<th>Minutos</th>
-			
-			<th>Var. Precio</th>
-			
-		</tr>
-        </thead>
-        <tbody>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-	</tbody>
-	</table>
-
-	<h2>Proximo partido</h2>
-	<ul>
-		<li>Rival: FCB(1º) +6</li>
-		<li>Var. precio estimada: +35.000</li>
-		<li>Aleros contra rival: 15.5</li>
-		<li>Partidos previos contra rival: 16.5</li>
-	</ul>
-    	<br>
-	
-    </div>
-</div>
-
-	<div id="mercado" class="tablas-alineadas">
-	
-	<table >
-
-	<thead>
-		<tr>
-			<th>Nombre</th>
-        		
-			<th>Ult. 3</th>
-			
-			<th>Val Media</th>
-			
-			<th>Val Jornada</th>
-			
-			<th>Precio</th>
-
-			<th>Equipo</th>
-			
-		</tr>
-        </thead>
-        
-        <g:each in="${jugadores}" var="jugador">
-        
-        	<tr data-codigo="${jugador.codigoAcb}">
-				
-				<td><a href="http://www.acb.com/stspartidojug.php?cod_jugador=BCE">${jugador.nombre} </a></td>
-        	
-			    <td><g:formatNumber number="${jugador.ultimosTres}" format="#.##" /></td>
-	
-			    <td>${jugador.valMedia}</td>
-			
-			    <td>${jugador.valJornada}</td>
-			    
-			    <td>${jugador.precio}</td>
-			
-				<g:if test="${jugador.equipo}">
-	     			<td>${jugador.equipo.nombreCorto}</td>
-				</g:if>
-			    <g:if test="${!jugador.equipo}">
-	     			<td> </td>
-				</g:if>
-				
-			</tr>
-		</g:each>
-		
-			
-		
-
-        
-		
-        
-    </table>   
-    </div>  
-    <div class="datos-jugador" id="datos-jugador-panel2">
-	<h1>Juan Tal Cual</h1>
-	<ul>
-		<li>Posición: Alero</li>
-		<li>Coste: 350.000</li>
-		<li>Val. Media: 14,5</li>
-	</ul>
-	<h2>Últimos tres partidos</h2>
-	<table class="sortable" id="anyid">
-
-        <thead>
-		<tr>
-			<th>Rival</th>
-        		
-			<th>Valoracion</th>
-			
-			<th>Minutos</th>
-			
-			<th>Var. Precio</th>
-			
-		</tr>
-        </thead>
-        <tbody>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-		<tr>
-		   	<td>TAU</td>
-        	
-		    	<td>21.33</td>
-
-		    	<td>22'</td>
-
-			<td>+10.000</td>
-		</tr>
-	</tbody>
-	</table>
-
-	<h2>Proximo partido</h2>
-	<ul>
-		<li>Rival: FCB(1º) +6</li>
-		<li>Var. precio estimada: +35.000</li>
-		<li>Aleros contra rival: 15.5</li>
-		<li>Partidos previos contra rival: 16.5</li>
-	</ul>
-    	<br>
-	
-    </div>
-
-</div>
-</div>
-
-	
-	
-		
-
-	</div>
-
-	<div class="footer">&copy; 2006 <a href="index.html">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>. Template design by <a href="http://templates.arcsin.se">Arcsin</a>
-	</div>
-
-</div>
-
-</body>
+	</body>
 
 </html>

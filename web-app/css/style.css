@@ -1,0 +1,107 @@
+
+body{
+	margin: 0px;
+	background-color:#D8E8F3;
+	color: white;
+    	font-family: "trebuchet ms","lucidia grande",verdana,arial,sans-serif;
+}
+
+#header-panel header{
+	background-color: #333366;
+	height: 100px;
+}
+
+.main-panel header, #panel-mercado header{
+	background-color: #3C75C5;
+	line-height: 50px;
+    	font-size: 24px;
+    	margin: 1% 10% 0px;
+	vertical-align: middle;
+}
+
+.main-panel header p, #panel-mercado header p{
+	margin: 1% 1% 0px;
+}
+
+.tabla-jugadores{
+	width: 100%;
+	display:inline-block;
+	overflow:auto;
+    	height: 279px;
+	text-align: left;
+}
+
+.tabla-jugadores tr:hover {
+	background:#AECBDF;
+}
+
+.tabla-jugadores thead tr {
+	background: #8ABBDC;
+}
+
+.tabla-jugadores th, .tabla-jugadores td {
+	width: 15%;
+	text-align: center;
+}
+
+.tabla-jugadores tbody tr{
+	background: #EAEBF5;
+	color: #444444;
+}
+
+#tabla-equipo, #tabla-mercado {
+    display: inline-block;
+    width: 50%;
+}
+
+.player-data-container {
+	display:inline-block;
+	background:#EAEBF5;
+	width:29%;
+}
+
+.player-data-container h2{
+	color: black;
+	font-size: 14px;
+	text-align: center;
+}
+
+.player-data-container {
+	margin: 0% 1% 0%;
+}
+
+.player-data-container h1{
+    	font-size: 16px;
+    	background: none repeat scroll 0 0 #8ABBDC;
+	margin: 0px 0px 0px;
+	text-align: center;
+	color:white;
+}
+
+.player-data-container{
+	color: #444444;
+	vertical-align: top;
+	text-align:center;
+}
+
+.player-data-container table{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.grupo-tabla {
+	margin: 1% 1% 0px;
+	text-align:center;
+	font-size:14px;
+}
+
+tbody tr.hilite td {
+	background: #AECBDF;
+}
+
+.tabla-jugadores td a {
+    color: #3C5CE7;
+    text-decoration: none;
+}
+

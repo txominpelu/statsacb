@@ -29,6 +29,8 @@ class CambiosControllerTests extends ControllerUnitTestCase {
 		}
 		
 		jugadorService = jugadorServiceStub.proxyInstance()
+		
+		Jugador.metaClass.static.getAll = { [new Jugador(codigoAcb:CODIGO)] }
 			
     }
 
@@ -36,15 +38,29 @@ class CambiosControllerTests extends ControllerUnitTestCase {
         super.tearDown()
     }
 
+	/**
+	 * Comprueba que el controlador genera datos validos sobre
+	 * los jugadores disponibles en el dominio.
+	 */
     void testObtenerModelo() {
-		Jugador.metaClass.static.getAll = { [new Jugador(codigoAcb:CODIGO)] }
-		println "JugadorService:$jugadorService"
 		def controller = new CambiosController()
 		controller.jugadorService = jugadorService
 		def model = controller.index()
-		assert model
-		assert model.jugadores.size() == 1
-		assertEquals NOMBRE, model.jugadores[0].nombre
-		assertEquals VAL_ULTIMOS_TRES, model.jugadores[0].ultimosTres
+		assert model?.jugadoresMercado.size() == 1
+		assertEquals NOMBRE, model.jugadoresMercado[0].nombre
+		assertEquals VAL_ULTIMOS_TRES, model.jugadoresMercado[0].ultimosTres
     }
+	
+	/**
+	 * Comprueba que el controlador funciona correctamente cuando
+	 * el usuario todavia no ha creado ningun equipo.
+	 */
+	void testEquipoVacio() {
+		def controller = new CambiosController()
+		controller.jugadorService = jugadorService
+		controller.index()
+		
+		assert controller.session.equipoSM.dineroDisponible == EquipoSM.DINERO_INICIAL
+		assert controller.session.equipoSM.jugadores.size() == 0
+	}
 }

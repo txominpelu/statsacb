@@ -334,6 +334,17 @@
               <goal>maven-functional-test</goal>
             </goals>
           </execution>
+	  <execution>
+            <id>functional-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+                <goal>exec</goal>
+            </goals>
+            <configuration>
+                <command>test-app</command>
+		<args>-coverage</args>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
       

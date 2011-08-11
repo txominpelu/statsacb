@@ -57,9 +57,11 @@ class LectorMercado {
 			def codigoAcb = leerCodigo(fila)
 			def precio = leerPrecio(fila)
 			def jugador = Jugador.findByCodigoAcb(codigoAcb)
-			jugador.posicion = posicion
-			jugador.precio = precio
-			jugador.save(flush:true)
+			if(jugador){
+				jugador.posicion = posicion
+				jugador.precio = precio
+				jugador.save(flush:true)
+			}
 		}
 	}
 
@@ -74,8 +76,8 @@ class LectorMercado {
 		return documento.select("table")[5].select("tr")[2..-1]
 	}
 	
-	protected String leerPrecio(Element filaJugador){
-		return filaJugador.select('td.grisdcha').text()
+	protected int leerPrecio(Element filaJugador){
+		return filaJugador.select('td.grisdcha').text().replace(".","") as int
 	}
 	
 	protected  String leerCodigo(Element filaJugador){

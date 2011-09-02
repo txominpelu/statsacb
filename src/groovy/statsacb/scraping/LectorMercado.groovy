@@ -11,7 +11,9 @@ import statsacb.Jugador
 
 
 @Grapes( @Grab(group='org.jsoup', module='jsoup', version='1.6.1' ))
-class LectorMercado {
+class LectorMercado extends Lector{
+	
+	private Posicion posicion
 	
 	/**
 	 * Obtiene de internet los ultimos datos
@@ -21,28 +23,14 @@ class LectorMercado {
 	 * @return
 	 */
 	def static main (String[] args){
-		def lector = new LectorMercado()
 		for(posicion in Posicion.values()){
-			lector.leerTabla(getDocumentoMercado(posicion), posicion)
+			def lector = new LectorMercado()
+			lector.posicion = posicion
+			lector.leerTabla()
 		}
 		
 	}
-	/**
-	 * Se conecta a la pagina del supermanager y 
-	 * obtiene el html de la página html que contiene
-	 * la tabla de los jugadores de la posicion dada.
-	 * 
-	 * @param posicion posicion a obtener
-	 * @return documento html con la tabla de jugadores de la posicion
-	 */
-	public static Document getDocumentoMercado(Posicion posicion){
-		def response = Jsoup.connect("http://supermanager.acb.com").data(["control" : "1","usuario" : "imediava","clave":"quetepet"]).method(Connection.Method.POST).execute();
-		def conexion = Jsoup.connect("http://supermanager.acb.com/vermercado.php?id_pos=${posicion.ordinal() + 1}")
-		for(cookie in response.cookies()){
-			conexion.cookie(cookie.key, cookie.value)
-		}
-		return conexion.get()
-	}
+	
 	
 	/**
 	 * Lee la tabla de jugadores de la posicion dada a 
@@ -52,14 +40,19 @@ class LectorMercado {
 	 * @param posicion posicion pasada
 	 * @return
 	 */
-	def leerTabla(Document documento, Posicion posicion){
+	def leerTabla(){
+		def documento = getDocumento()
 		for(fila in getFilasJugadores(documento)){
 			def codigoAcb = leerCodigo(fila)
 			def precio = leerPrecio(fila)
 			def jugador = Jugador.findByCodigoAcb(codigoAcb)
+			def valMedia = leerValMedia(fila)
+			
 			if(jugador){
+				println "${jugador.nombre} - $valMedia"
 				jugador.posicion = posicion
 				jugador.precio = precio
+				jugador.valMedia = valMedia
 				jugador.save(flush:true)
 			}
 		}
@@ -80,11 +73,33 @@ class LectorMercado {
 		return filaJugador.select('td.grisdcha').text().replace(".","") as int
 	}
 	
+	protected float leerValMedia(Element filaJugador){
+		return filaJugador.select('td.gris')[6].text().replace(",",".") as float
+	}
+	
 	protected  String leerCodigo(Element filaJugador){
 		return filaJugador.select('td a').attr("href").
 				replace("http://www.acb.com/stspartidojug.php?cod_jugador=", "");
 	}
 
+	
+	/**
+	* Se conecta a la pagina del supermanager y
+	* obtiene el html de la página html que contiene
+	* la tabla de los jugadores de la posicion dada.
+	*
+	* @param posicion posicion a obtener
+	* @return documento html con la tabla de jugadores de la posicion
+	*/
+   protected Document getDocumento(){
+	   def response = Jsoup.connect("http://supermanager.acb.com").data(["control" : "1","usuario" : "imediava","clave":"quetepet"]).method(Connection.Method.POST).execute();
+	   def conexion = Jsoup.connect("http://supermanager.acb.com/vermercado.php?id_pos=${posicion.ordinal() + 1}")
+	   for(cookie in response.cookies()){
+		   conexion.cookie(cookie.key, cookie.value)
+	   }
+	   return conexion.get()
+   }
+   
 	/**
 	 * Cosas a probar:
 	 * 

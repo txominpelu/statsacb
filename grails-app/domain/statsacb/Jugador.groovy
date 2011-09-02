@@ -38,5 +38,10 @@ class Jugador {
 	 */
 	Integer precio
 	
+	/**
+	 * Valoracion media segun la ACB.
+	 */
+	Float valMedia
+	
 	
 }

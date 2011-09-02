@@ -11,8 +11,8 @@ import grails.test.GrailsUnitTestCase
 @Grapes( @Grab(group='org.jsoup', module='jsoup', version='1.6.1' ))
 class LectorMercadoTests extends GrailsUnitTestCase{
 
-	static final String PRECIO_JUGADOR = "1.106.424"
-	static final String OTRO_PRECIO_JUGADOR = "1.106.535"
+	static final Integer PRECIO_JUGADOR = 1106424
+	static final Integer OTRO_PRECIO_JUGADOR = 1106535
 	/**
 	 * Codigo Acb del jugador en la prueba.
 	 */
@@ -108,11 +108,11 @@ class LectorMercadoTests extends GrailsUnitTestCase{
 	 * @param precio precio del jugador
 	 * @return
 	 */
-	private crearFilaJugador(Element tablaValida, String codigo, String precio ) {
+	private crearFilaJugador(Element tablaValida, String codigo, Integer precio ) {
 		def trValido = tablaValida.appendElement("tr")
 		def tdPrecio = trValido.appendElement("td")
 		tdPrecio.addClass("grisdcha")
-		tdPrecio.prependText(precio)
+		tdPrecio.prependText(precio as String)
 
 		def tdEnlace = trValido.appendElement("td")
 		def enlace = tdEnlace.appendElement("a")

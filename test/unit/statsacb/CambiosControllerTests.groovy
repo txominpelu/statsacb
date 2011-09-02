@@ -30,7 +30,8 @@ class CambiosControllerTests extends ControllerUnitTestCase {
 		
 		jugadorService = jugadorServiceStub.proxyInstance()
 		
-		Jugador.metaClass.static.getAll = { [new Jugador(codigoAcb:CODIGO)] }
+		mockDomain(Jugador, [new Jugador(codigoAcb:CODIGO)])
+		//Jugador.metaClass.static.getAll = { [new Jugador(codigoAcb:CODIGO)] }
 			
     }
 
@@ -45,8 +46,9 @@ class CambiosControllerTests extends ControllerUnitTestCase {
     void testObtenerModelo() {
 		def controller = new CambiosController()
 		controller.jugadorService = jugadorService
-		def model = controller.index()
-		assert model?.jugadoresMercado.size() == 1
+		controller.index()
+		def model = controller.mercado()
+		assert model?.jugadores.size() == 1
 		assertEquals NOMBRE, model.jugadoresMercado[0].nombre
 		assertEquals VAL_ULTIMOS_TRES, model.jugadoresMercado[0].ultimosTres
     }

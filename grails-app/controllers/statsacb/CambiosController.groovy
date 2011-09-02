@@ -1,5 +1,7 @@
 package statsacb
 
+import grails.converters.*
+
 class CambiosController {
 
 	def jugadorService
@@ -7,15 +9,45 @@ class CambiosController {
 	def index = {
 		session.equipoSM = new EquipoSM()
 		session.equipoSM.jugadores = []
-		[jugadoresMercado : Jugador.getAll().collect { jugadorService.datosJugadorTabla(it) }]
 	}
 	
 	def sustituir = {
 		def jugador = Jugador.findWhere(codigoAcb:params.jugFinal)
-		assert session?.equipoSM.puedeFichar(jugador)
+		assert session?.equipoSM?.puedeFichar(jugador)
 		session.equipoSM.fichar(jugador)
-		render(template:"tablaJugadores", model:[jugadores:session.equipoSM.jugadores.collect { jugadorService.datosJugadorTabla(it)}, min:11])
+		redirect(action:equipo)
 	}
 	
+	def equipo = {
+		if(!session.equipoSM.isAttached()) {
+			session.equipoSM.attach()
+		}
+		render(template:"tablaJugadores", 
+					model:[jugadores:session.equipoSM.jugadores.
+						collect { jugadorService.datosJugadorTabla(it)}, 
+						equipo:true])
+	}
+	
+	def mercado = {
+		def criteria = Jugador.createCriteria()
+		def jugadores = criteria {
+			and {
+				if(params.posicion){
+					eq("posicion", Posicion.valueOf(params.posicion))
+				}
+				or{
+					le("precio", session.equipoSM.dineroDisponible)
+					eq("precio", session.equipoSM.dineroDisponible)
+				}
+			}
+			order("precio", "desc")
+		}
+		render(template:"tablaJugadores", model :[jugadores : jugadores.collect { jugadorService.datosJugadorTabla(it) }])
+	}
+	
+	
+	def equipojson = {
+		render session.equipoSM as JSON
+	}
 	
 }

@@ -14,6 +14,11 @@ class EquipoAcb {
     
 	static hasMany = [jugadores: Jugador]
 	
+	/**
+	* Nombre completo del club en el
+	* momento actual.
+	*/
+	String nombreCompleto
 	
     /**
      * Short name for the team that appears

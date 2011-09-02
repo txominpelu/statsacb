@@ -1,38 +1,35 @@
 package statsacb.scraping
 
-import statsacb.EquipoAcb;
-import statsacb.Jugador;
-import groovy.util.slurpersupport.NodeChild;
+import statsacb.Posicion;
+import statsacb.EquipoAcb
+import org.jsoup.nodes.Document;
 
-import groovy.util.slurpersupport.GPathResult;
+import org.jsoup.Jsoup;
 
-/**
- * Lee plantillas de equipos para obtener
- * los equipos a los que pertenecen los jugadores.
- * 
- * @author imediava
- *
- */
-class LectorEquipos {
+@Grapes( @Grab(group='org.jsoup', module='jsoup', version='1.6.1' ))
+class LectorEquipos{
 
-	static final String EDICION_ACB = '55'
+
+	static final int EDICION_ACB = 55
+
+	static final codigoToNombreCorto = [ 'CLA':'BAS',  'ALI':'ALI',
+		'GCA':'CLA', 'GRN':'GRN', 'FUE':'FUE', 'PEV':'PAM', 'CAI':'ZZA',
+		'FCB':'BAR', 'MEN':'MEN', 'CAJ':'SEV', 'BBB':'BLB', 'RMA':'MAD',
+		'MAN':'MAN', 'ASE':'EST', 'GBC':'GBC', 'DKV':'JOV', 'BRV':'VAL',
+		'UNI':'RON']
 
 	/**
-	* Lee plantillas de una temporada de la
-	* ACB y asigna a los jugadores su el equipo
-	* al que pertenecen.
-	*
-	*
-	*/
-	def static main (String[] args){
-		listarEquipos()
+	 * Lee plantillas de una temporada de la
+	 * ACB y asigna a los jugadores su el equipo
+	 * al que pertenecen.
+	 *
+	 *
+	 */
+	def main (String[] args){
 		def lector = new LectorEquipos()
-		
-		for(equipo in EquipoAcb.getAll()){
-			println "Codigo: ${equipo.codigo}"
-			lector.leerEquipo(equipo)
-		}
+		lector.leerDocumento()
 	}
+
 
 	/**
 	 * Lista todos los equipos de una
@@ -40,57 +37,43 @@ class LectorEquipos {
 	 * tienen para la web de la acb que son nombres
 	 * constantes y que sirven para identificar al
 	 * equipo.
-	 * 
+	 *
 	 * @return
 	 */
-	def static listarEquipos(){
-		def html = new CustomParser().parseUrl("http://www.acb.com/menuplantillas.php?cod_edicion=$EDICION_ACB")
-
-		html.'**'.findAll{
-			it.name() == 'td' && it['@class'] == 'menuclubs'
-		}.each {
-			def match = it.a[0]['@href'].toString() =~ /plantilla.php\?cod_equipo=(\w\w\w)&cod_competicion=LACB&cod_edicion=55/
+	def leerDocumento(){
+		def documento = getDocumento()
+		for (enlace in documento.select("td.menuclubs > a").not(":has(img)")){
+			def codigo = leerCodigo(enlace.attr("href").toString())
+			def equipoLocal = EquipoAcb.findWhere(codigo:codigo)
+			if(!equipoLocal){
+				equipoLocal = new EquipoAcb(nombreCorto:codigoToNombreCorto[codigo], codigo:codigo)
+			}
+			equipoLocal.nombreCompleto = enlace.ownText()
+			println equipoLocal
+			equipoLocal.save(flush:true)
 		}
+		
 	}
 
 	/**
-	 * Lee la plantilla de un equipo
-	 * y estable la pertenencia de los jugadores leidos
-	 * al equipo.
-	 * 
-	 * @param equipo
-	 * @return
+	 * Lee el codigo que representara siempre
+	 * al equipo en la pagina de la ACB.
 	 */
-	def leerEquipo(EquipoAcb equipo){
+	private String leerCodigo(String url){
+		def match = url =~ /plantilla.php\?cod_equipo=(\w\w\w)&cod_competicion=LACB&cod_edicion=55/
+		return match[0][1]
+	}
 
-		def html = new CustomParser().parseUrl("http://www.acb.com/plantilla.php?cod_equipo=${equipo.codigo}&cod_competicion=LACB&cod_edicion=$EDICION_ACB")
-		
-		leerTabla(html, 0, 1, equipo)
-		leerTabla(html, 2, 0, equipo)
-		
-	}
-	
-	def leerTabla(NodeChild html, int tableIndex, int codeCellIndex , EquipoAcb equipo){
-		
-		def tablas = html.'**'.findAll{
-			it.name() == 'table' && it['@class'] == 'plantilla'
-		}
-		
-		if(tablas.size() > tableIndex){
-			tablas[tableIndex].tr[1..-2].each {
-				leerJugador(it, equipo, codeCellIndex)
-			}
-		}
-	}
-	
-	
-	def leerJugador(GPathResult filaJugador, EquipoAcb equipo, int codeCellIndex){
-		
-		def codigoJugador = filaJugador.td[codeCellIndex].a[0]['@href'].toString().replace('jugador.php?id=', '')
-		def jugador = Jugador.findWhere(codigoAcb: codigoJugador)
-		if( jugador ) {
-			equipo.addToJugadores(jugador)
-			equipo.save(flush:true)
-		} 
+	/**
+	 * Se conecta a la pagina del supermanager y
+	 * obtiene el html de la página que contiene
+	 * la lista de equipos de una temporada.
+	 *
+	 * @param posicion posicion a obtener
+	 * @return documento html con la tabla de jugadores de la posicion
+	 */
+	protected Document getDocumento(){
+		int edicionAcb = EDICION_ACB
+		return Jsoup.connect("http://www.acb.com/menuplantillas.php?cod_edicion=$edicionAcb").get()
 	}
 }

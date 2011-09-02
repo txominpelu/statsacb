@@ -2,7 +2,7 @@ package statsacb
 
 class EquipoSM {
 	
-	static int DINERO_INICIAL = 650000
+	static int DINERO_INICIAL = 2000000
 
     static constraints = {
     }
@@ -35,10 +35,6 @@ class EquipoSM {
 	 * @return verdadero si el jugador se puede incorporar, falso en caso contrario
 	 */
 	protected boolean puedeFichar(Jugador jugador){
-		println jugador.posicion
-		println jugador.posicion.getMaxJugadores()
-		
-		println getJugadores(jugador.posicion)
 		return dineroDisponible >= jugador.precio && 
 				getJugadores(jugador.posicion).size() < jugador.posicion.getMaxJugadores()
 	}
@@ -50,8 +46,8 @@ class EquipoSM {
 	 * @param posicion posicion
 	 * @return lista de jugadores que juegan en la posicion pasada
 	 */
-	protected Set<Jugador> getJugadores(Posicion posicion){
-		return this.jugadores.findAll { it.posicion == posicion }
+	protected List<Jugador> getJugadores(Posicion posicion){
+		return this.jugadores.findAll { it.posicion == posicion } as List
 	}
 	
 }

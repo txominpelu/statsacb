@@ -2,7 +2,7 @@ package statsacb
 
 import grails.test.*
 
-class EquipoTests extends GrailsUnitTestCase {
+class StatsEquipoServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

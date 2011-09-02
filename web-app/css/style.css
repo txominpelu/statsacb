@@ -8,7 +8,7 @@ body{
 
 #header-panel header{
 	background-color: #333366;
-	height: 100px;
+	height: 65px;
 }
 
 .main-panel header, #panel-mercado header{
@@ -20,14 +20,14 @@ body{
 }
 
 .main-panel header p, #panel-mercado header p{
-	margin: 1% 1% 0px;
+	margin: 0.5% 1% 0px;
 }
 
 .tabla-jugadores{
 	width: 100%;
 	display:inline-block;
 	overflow:auto;
-    	height: 279px;
+    height: 305px;
 	text-align: left;
 }
 
@@ -71,8 +71,8 @@ body{
 }
 
 .player-data-container h1{
-    	font-size: 16px;
-    	background: none repeat scroll 0 0 #8ABBDC;
+    font-size: 16px;
+    background: none repeat scroll 0 0 #8ABBDC;
 	margin: 0px 0px 0px;
 	text-align: center;
 	color:white;

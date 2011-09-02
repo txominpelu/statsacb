@@ -8,11 +8,7 @@ import statsacb.Jugador;
 
 class LectorJugadores{
 
-	static final nombresCortosToCodigos = [ 'CLA':'BAS',  'ALI':'ALI',
-		'GCA':'CLA', 'GRN':'GRN', 'FUE':'FUE', 'PEV':'PAM', 'CAI':'ZZA',
-		'FCB':'BAR', 'MEN':'MEN', 'CAJ':'SEV', 'BBB':'BLB', 'RMA':'MAD',
-		'MAN':'MAN', 'ASE':'EST', 'GBC':'GBC', 'DKV':'JOV', 'BRV':'VAL',
-		'UNI':'RON']
+	
 
 	static final Integer COLUMNA_NUM_JORNADA = 1
 	
@@ -109,11 +105,6 @@ class LectorJugadores{
 	 * @return el equipo que tiene dicho nombre corto
 	 */
 	private leerEquipo(String nombreCorto) {
-		def equipoLocal = EquipoAcb.findWhere(nombreCorto:nombreCorto)
-		if(equipoLocal == null){
-			equipoLocal = new EquipoAcb(nombreCorto:nombreCorto, codigo:nombresCortosToCodigos[nombreCorto])
-			equipoLocal.save()
-		}
-		return equipoLocal
+		return  EquipoAcb.findWhere(nombreCorto:nombreCorto)
 	}
 }
